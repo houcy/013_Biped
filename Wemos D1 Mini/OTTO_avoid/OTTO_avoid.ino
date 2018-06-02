@@ -22,10 +22,12 @@ YR 3==> |               | <== YL 2
 RR 5==>   -----   ------  <== RL 4
          |-----   ------|
 */
-  #define PIN_YL 2 //servo[2]
-  #define PIN_YR 3 //servo[3]
-  #define PIN_RL 4 //servo[4]
-  #define PIN_RR 5 //servo[5]
+  #define PIN_YL D5 //servo[2]
+  #define PIN_YR D6 //servo[3]
+  #define PIN_RL D7 //servo[4]
+  #define PIN_RR D8 //servo[5]
+  #define USTrigger D2 //Trigger on D2
+  #define USEcho D3 //Echo on Trigger D3
 ///////////////////////////////////////////////////////////////////
 //-- Global Variables -------------------------------------------//
 ///////////////////////////////////////////////////////////////////
@@ -40,7 +42,8 @@ bool obstacleDetected = false;
 ///////////////////////////////////////////////////////////////////
 void setup(){
   //Set the servo pins
-  Otto.init(PIN_YL,PIN_YR,PIN_RL,PIN_RR,true, -1, 10, 8, 9);
+  //D1/@
+  Otto.init(PIN_YL,PIN_YR,PIN_RL,PIN_RR,true, -1, 10, USTrigger, USEcho);
   Otto.sing(S_connection); //Otto wake up!
   Otto.home();
   delay(50);
