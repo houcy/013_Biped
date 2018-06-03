@@ -8,8 +8,6 @@ const char* pass =  "yrtqbgr9fann";
 //-- You can add functions, gestures or sounds in loop
 //-- https://github.com/OttoDIY
 //-- CC BY SA (http://ottodiy.com)
-//-- 04 December 2016
-//-- Adapted Pablo García pabloeweb@gmail.com 01 May 2017
 //-----------------------------------------------------------------
 #include <Servo.h>
 #include <Oscillator.h>
@@ -22,10 +20,10 @@ Otto Otto;  //This is Otto!
          ---------------
         |     O   O     |
         |---------------|
-  YR 3==> |               | <== YL 2
+  YR D6==> |               | <== YL D5
          ---------------
             ||     ||
-  RR 5==>   -----   ------  <== RL 4
+  RR D8==>   -----   ------  <== RL D7
          |-----   ------|
 */
 #define PIN_YL D5 //servo[2]
@@ -34,13 +32,10 @@ Otto Otto;  //This is Otto!
 #define PIN_RR D8 //servo[5]
 #define USTrigger D2 //Trigger on D2
 #define USEcho D3 //Echo on Trigger D3
-/*SOUNDS******************
-   S_connection  S_disconnection  S_buttonPushed S_mode1 S_mode2 S_mode3 S_surprise S_OhOoh  S_OhOoh2  S_cuddly
-   S_sleeping  S_happy S_superHappy S_happy_short S_sad S_confused S_fart1 S_fart2  S_fart3
-*/
+
 /*MOVEMENTS LIST**************
    dir=1---> FORWARD/LEFT
-   dir=-1---> BACKWARD/RIGTH
+   dir=-1---> BACKWARD/RIGHT
    T : amount of movement. HIGHER VALUE SLOWER MOVEMENT usually 1000 (from 600 to 1400)
    h: height of mov. around 20
      jump(steps=1, int T = 2000);
@@ -56,9 +51,7 @@ Otto Otto;  //This is Otto!
      moonwalker(steps, T, HEIGHT,dir);
      crusaito(steps, T, HEIGHT,dir);
      flapping(steps, T, HEIGHT,dir);
-  /*GESTURES LIST***************
-  OttoHappy OttoSuperHappy  OttoSad   OttoSleeping  OttoFart  OttoConfused OttoLove  OttoAngry
-  OttoFretful OttoMagic  OttoWave  OttoVictory  OttoFail*/
+*/
 ///////////////////////////////////////////////////////////////////
 //-- Global Variables -------------------------------------------//
 ///////////////////////////////////////////////////////////////////
@@ -174,7 +167,7 @@ void setup() {
 
   //Set the servo pins
   Otto.init(PIN_YL, PIN_YR, PIN_RL, PIN_RR, true);
-  Otto.sing(S_connection); //Otto wake up!
+  //Otto.sing(S_connection); //Otto wake up!
   Otto.home();
   delay(50);
 }
