@@ -73,8 +73,8 @@ void setup(){
 ///////////////////////////////////////////////////////////////////
 void loop() {
           //OBSTACLE MODE ON!!!! 
-          obstacleMode();
-          /*Otto.walk(2,1000,1); //2 steps FORWARD
+          //obstacleMode();
+          Otto.walk(2,1000,1); //2 steps FORWARD
           Otto.walk(2,1000,-1); //2 steps BACKSWARD
           Otto.playGesture(OttoFretful);
           Otto.home();
@@ -92,7 +92,7 @@ void loop() {
           Otto.home();
           Otto.updown(1, 2000, 22);
           Otto.home();
-          */
+          
 }
 
 ///////////////////////////////////////////////////////////////////
