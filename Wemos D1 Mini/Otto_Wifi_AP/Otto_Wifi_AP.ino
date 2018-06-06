@@ -123,7 +123,7 @@ void handleHOME() {
 
 }
 void handleUPDOWN() {
-  Serial.println("Ooowwwww");
+  Serial.println("UpDown");
   String message;
   message += "{ \"success\": ";
   message += "1 }";
@@ -132,7 +132,7 @@ void handleUPDOWN() {
   Otto.home();
 }
 void handleBEND() {
-  Serial.println("Ooowwwww");
+  Serial.println("Bend");
   String message;
   message += "{ \"success\": ";
   message += "1 }";
@@ -147,14 +147,14 @@ void handleBEND() {
 void setup() {
   Serial.begin(115200);
   Serial.println();
-  Serial.println("Starting: Please connect to DIYODE-AP, Password A1B2C3D4");
+  Serial.println("Starting: Please connect to DIYODE-AP");
 
   // We start by connecting to a WiFi network
   //Serial.print("Please connect to http://192.168.4.1/");
   //Serial.println(ssid);
 
   WiFi.mode(WIFI_AP);
-  WiFi.softAP("DIYODE-AP", "A1B2C3D4");
+  WiFi.softAP("DIYODE-AP", "1234");
   server.begin(); // Start the HTTP Server
   Serial.print("Please connect to http://192.168.4.1/");
   //WiFi.begin(ssid, pass);
