@@ -51,9 +51,7 @@ Otto Otto;  //This is Otto!
      crusaito(steps, T, HEIGHT,dir);
      flapping(steps, T, HEIGHT,dir);
 */
-///////////////////////////////////////////////////////////////////
-//-- Global Variables -------------------------------------------//
-///////////////////////////////////////////////////////////////////
+
 bool obstacleDetected = false;
 int distance = 0;
 
@@ -140,33 +138,15 @@ void handleBEND() {
   Otto.home();
 }
 
-///////////////////////////////////////////////////////////////////
-//-- Setup ------------------------------------------------------//
-///////////////////////////////////////////////////////////////////
 void setup() {
   Serial.begin(115200);
   Serial.println();
-  Serial.println("Starting: Please connect to DIYODE-AP");
-
-  // We start by connecting to a WiFi network
-  //Serial.print("Please connect to http://192.168.4.1/");
-  //Serial.println(ssid);
+  Serial.println("Starting: Please connect to DIYODE-AP")
 
   WiFi.mode(WIFI_AP);
   WiFi.softAP("DIYODE-AP", "1234");
   server.begin(); // Start the HTTP Server
   Serial.print("Please connect to http://192.168.4.1/");
-  //WiFi.begin(ssid, pass);
-
-  //  while (WiFi.status() != WL_CONNECTED) {
-  //    delay(500);
-  //    Serial.print(".");
-  //  }
-  //  Serial.println("");
-  //
-  //  Serial.println("WiFi connected");
-  //  Serial.println("IP address: ");
-  //  Serial.println(WiFi.localIP());
 
   server.on("/fwd", handleFWD);
   server.on("/back", handleBACK);
@@ -185,51 +165,10 @@ void setup() {
   Otto.home();
   delay(50);
 }
-///////////////////////////////////////////////////////////////////
-//-- Principal Loop ---------------------------------------------//
-//--Uncomment lines or add you own-------------------------------//
-///////////////////////////////////////////////////////////////////
 void loop() {
 
   server.handleClient();
-  //comment uncomment if you need the clock displayed on the serial monitor
-  //digitalClockDisplay();
   delay(100);
-  //OBSTACLE MODE ON!!!!
-  //obstacleMode();
-  //          Otto.walk(2,1000,1); //2 steps FORWARD
-  //          Otto.walk(2,1000,-1); //2 steps BACKSWARD
-  //          //Otto.playGesture(OttoFretful);
-  //          Otto.home();
-  //          //Otto.sing(S_sleeping);
-  //          delay(1000);
-  //          Otto.turn(2,1000,1);//2 steps turning RIGHT
-  //          delay(50);
-  //          Otto.turn(2,1000,-1);//2 steps turning Left
-  //          delay(50);
-  //          Otto.moonwalker(3, 1000, 25, 1);
-  //          Otto.home();
-  //          Otto.bend (1, 2000, 1);
-  //          Otto.home();
-  //          Otto.ascendingTurn(1, 2000, 22);
-  //          Otto.home();
-  //          Otto.updown(1, 2000, 22);
-  //          Otto.home();
-  //
-}
 
-///////////////////////////////////////////////////////////////////
-//-- Function to avoid obstacles
-void obstacleMode() {
-  distance = Otto.getDistance();
-  if (distance < 15) {
-    Otto.sing(S_surprise);
-    Otto.walk(2, 1300, -1);
-    Otto.turn(3, 1000, -1);
-    delay(50);
-  }
-  else {
-    Otto.walk(2, 1000, 1);
-  }
 }
 
