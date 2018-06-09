@@ -1,8 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 ESP8266WebServer server(80);
-const char* ssid = "Telstra00F027";
-const char* pass =  "yrtqbgr9fann";
+
 //----------------------------------------------------------------
 //-- Basic Otto´s setup
 //-- You can add functions, gestures or sounds in loop
